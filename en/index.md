@@ -4,13 +4,21 @@ title: English
 lang: en
 permalink: /en/
 ---
-<h1>Posts</h1>
+<div class="list-intro">
+<h1 class="catalogue-title">Posts</h1>
 <p>Running a tiny IT company: building, failing, and writing down what we learn, honestly.</p>
+</div>
 {% assign posts = site.posts | where: "lang", "en" %}
-<ul class="post-list">
+<div class="catalogue">
 {%- for post in posts %}
-  <li><span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
-  <h3><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3></li>
+  <a href="{{ post.url | relative_url }}" class="catalogue-item">
+    <div>
+      <time datetime="{{ post.date | date_to_xmlschema }}" class="catalogue-time">{{ post.date | date: "%Y-%m-%d" }}</time>
+      <h1 class="catalogue-title">{{ post.title | escape }}</h1>
+      <div class="catalogue-line"></div>
+      <p>{{ post.content | strip_html | truncatewords: 30 }}</p>
+    </div>
+  </a>
 {%- endfor %}
-</ul>
+</div>
 {% if posts.size == 0 %}<p>No posts yet. The first one is coming soon.</p>{% endif %}

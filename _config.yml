@@ -3,14 +3,12 @@ description: "작은 IT 회사를 굴리며 만들고, 실패하고, 배운 것�
 url: https://brightiny9.github.io
 baseurl: ""
 lang: ko
-theme: minima
+author:
+  name: brightiny9
+remote_theme: chesterhow/tale
 plugins:
+  - jekyll-remote-theme
   - jekyll-feed
   - jekyll-seo-tag
-header_pages:
-  - ko/index.md
-  - en/index.md
-  - ko/about.md
-  - en/about.md
 exclude:
   - README.md

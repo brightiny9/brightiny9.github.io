@@ -1,0 +1,29 @@
+---
+---
+
+// Tale's fonts have no Hangul: let Korean fall back to system fonts.
+$serif-primary: 'Libre Baskerville', 'Times New Roman', Times, 'AppleMyungjo', 'Noto Serif KR', 'Noto Serif CJK KR', 'Batang', serif;
+$serif-secondary: Palatino, 'Palatino LT STD', 'Palatino Linotype', 'Book Antiqua', 'Georgia', 'AppleMyungjo', 'Noto Serif KR', 'Noto Serif CJK KR', 'Batang', serif;
+$sans-serif: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Noto Sans CJK KR', 'Malgun Gothic', sans-serif;
+
+@import 'tale';
+
+:lang(ko) {
+  word-break: keep-all;
+}
+
+.list-intro {
+  padding: 3rem 0 1rem;
+}
+
+.post .translation {
+  margin-top: 2rem;
+}
+
+.post .disclosure {
+  border-top: 1px solid $grey-2;
+  color: $default-tint;
+  font-size: .85rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
