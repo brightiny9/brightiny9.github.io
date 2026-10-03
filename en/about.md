@@ -8,6 +8,8 @@ permalink: /en/about/
 
 Hi, I'm **brightiny9**.
 
+Our goal is to build services that people who run a business with vibe coding can't do without. If you ship products with AI-written code, you're who we're building for.
+
 I write about what we're building, and I pick similar products and companies to look at how they were built, how they make money, and how they differ. I dig through public sources, and when there are numbers, I talk in numbers.
 
 ## What you can expect
