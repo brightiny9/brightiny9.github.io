@@ -5,6 +5,7 @@ lang: en
 permalink: /en/
 ---
 <h1>Posts</h1>
+<p>Running a tiny IT company: building, failing, and writing down what we learn, honestly.</p>
 {% assign posts = site.posts | where: "lang", "en" %}
 <ul class="post-list">
 {%- for post in posts %}
