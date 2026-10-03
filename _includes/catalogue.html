@@ -1,4 +1,4 @@
-{%- comment -%} Usage: include catalogue.html posts=... empty="..." translations=true {%- endcomment -%}
+{%- comment -%} Usage: include catalogue.html posts=... empty="..." [limit=N empty_secondary="..." translation_lang="ko" translation_label="..."] {%- endcomment -%}
 {%- if include.posts.size > 0 %}
 <div class="catalogue">
 {%- for post in include.posts limit: include.limit %}
@@ -9,13 +9,13 @@
       <div class="catalogue-line"></div>
       <p class="catalogue-excerpt">{{ post.excerpt | default: post.content | strip_html | strip | truncate: 140 }}</p>
     </a>
-    {%- if include.translations and post.ref %}
-      {%- assign t = site.posts | where: "ref", post.ref | where: "lang", "en" | first %}
-      {%- if t %}<a class="catalogue-translation" href="{{ t.url | relative_url }}" hreflang="en">English →</a>{% endif %}
+    {%- if include.translation_lang and post.ref %}
+      {%- assign t = site.posts | where: "ref", post.ref | where: "lang", include.translation_lang | first %}
+      {%- if t %}<a class="catalogue-translation" href="{{ t.url | relative_url }}" hreflang="{{ include.translation_lang }}" lang="{{ include.translation_lang }}">{{ include.translation_label }}</a>{% endif %}
     {%- endif %}
   </div>
 {%- endfor %}
 </div>
 {%- else %}
-<p class="empty-state">{{ include.empty }}</p>
+<p class="empty-state">{{ include.empty }}{% if include.empty_secondary %}<span class="empty-secondary" lang="ko">{{ include.empty_secondary }}</span>{% endif %}</p>
 {%- endif %}

@@ -1,8 +1,8 @@
 title: brightiny9
-description: "우리가 만드는 제품을 소개하고, 비슷한 서비스와 비교해요 · What we're building, compared side by side with similar products"
+description: "What we're building, compared side by side with similar products · 우리가 만드는 제품을 소개하고, 비슷한 서비스와 비교해요"
 url: https://brightiny9.github.io
 baseurl: ""
-lang: ko
+lang: en
 author:
   name: brightiny9
 remote_theme: chesterhow/tale
