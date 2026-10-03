@@ -17,5 +17,3 @@ I write about what we're building, and I pick similar products and companies to 
 - No ads or sponsored posts. If that ever changes, I'll say so.
 - If I get something wrong, I'll fix it and note the correction.
 - No visitor tracking.
-
-[한국어](/ko/about/)
