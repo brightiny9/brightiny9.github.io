@@ -7,22 +7,16 @@ layout: default
     <img class="avatar" src="{{ '/assets/avatar.webp' | relative_url }}" alt="{{ page.avatar_alt }}" width="120" height="120">
     <h1 class="hero-title">{{ site.title }}</h1>
     <div class="post-line"></div>
-    <p class="hero-tagline">{{ page.tagline_en }}</p>
-    <p class="hero-tagline-secondary" lang="ko">{{ page.tagline_ko }}</p>
-    <div class="hero-buttons">
-      <a class="pill" href="{{ '/en/' | relative_url }}" hreflang="en">{{ page.button_en }}</a>
-      <a class="pill" href="{{ '/ko/' | relative_url }}" hreflang="ko" lang="ko">{{ page.button_ko }}</a>
-    </div>
+    <p class="hero-tagline">{{ page.tagline }}</p>
   </header>
 
   <section class="recent">
     <h2 class="section-title">{{ page.recent_title }}</h2>
     {%- assign posts = site.posts | where: "lang", "en" %}
-    {% include catalogue.html posts=posts limit=3 empty=page.empty empty_secondary=page.empty_ko translation_lang="ko" translation_label=page.translation_label %}
+    {% include catalogue.html posts=posts limit=3 empty=page.empty translation_lang="ko" translation_label=page.translation_label %}
   </section>
 
   <p class="home-about">
-    <a href="{{ '/en/about/' | relative_url }}" hreflang="en">{{ page.about_en }}</a> ·
-    <a href="{{ '/ko/about/' | relative_url }}" hreflang="ko" lang="ko">{{ page.about_ko }}</a>
+    <a href="{{ '/en/about/' | relative_url }}" hreflang="en">{{ page.about }}</a>
   </p>
 </div>

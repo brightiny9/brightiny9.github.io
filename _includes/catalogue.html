@@ -1,4 +1,4 @@
-{%- comment -%} Usage: include catalogue.html posts=... empty="..." [limit=N empty_secondary="..." translation_lang="ko" translation_label="..."] {%- endcomment -%}
+{%- comment -%} Usage: include catalogue.html posts=... empty="..." [limit=N translation_lang="ko" translation_label="..."] {%- endcomment -%}
 {%- if include.posts.size > 0 %}
 <div class="catalogue">
 {%- for post in include.posts limit: include.limit %}
@@ -17,5 +17,5 @@
 {%- endfor %}
 </div>
 {%- else %}
-<p class="empty-state">{{ include.empty }}{% if include.empty_secondary %}<span class="empty-secondary" lang="ko">{{ include.empty_secondary }}</span>{% endif %}</p>
+<p class="empty-state">{{ include.empty }}</p>
 {%- endif %}
