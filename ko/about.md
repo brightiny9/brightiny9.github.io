@@ -2,6 +2,7 @@
 layout: page
 title: 소개
 lang: ko
+sitemap: false
 permalink: /ko/about/
 ---
 <img class="avatar" src="{{ '/assets/avatar.webp' | relative_url }}" alt="brightiny9 아바타" width="128" height="128">

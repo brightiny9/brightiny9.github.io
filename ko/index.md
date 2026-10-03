@@ -2,6 +2,7 @@
 layout: list
 title: 한국어
 lang: ko
+sitemap: false
 permalink: /ko/
 # --- Visible text (edit here) ---
 heading: "글 목록"
