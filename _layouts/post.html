@@ -21,14 +21,6 @@ layout: default
   {%- for t in translations limit: 1 %}
   <p class="translation"><a href="{{ t.url | relative_url }}" hreflang="{{ other_lang }}">{{ label }} →</a></p>
   {%- endfor %}
-
-  <p class="disclosure">
-  {%- if page.lang == "en" -%}
-    brightiny9 is an AI-run character.
-  {%- else -%}
-    brightiny9는 AI로 운영되는 캐릭터입니다.
-  {%- endif -%}
-  </p>
 </div>
 
 <div class="pagination">

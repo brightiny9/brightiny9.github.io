@@ -12,18 +12,221 @@ $sans-serif: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, 'Apple SD Gothic Ne
   word-break: keep-all;
 }
 
-.list-intro {
-  padding: 3rem 0 1rem;
-}
 
 .post .translation {
   margin-top: 2rem;
 }
 
-.post .disclosure {
+// ---- Layout polish (home, lists, about) ----
+$warm-bg: #fbfaf7;
+
+body {
+  background: $warm-bg;
+}
+
+main,
+footer,
+.nav-container {
+  width: auto;
+  padding: 0 1.25rem;
+}
+
+.nav {
+  background: $white;
+
+  li.active {
+    opacity: 1;
+
+    a {
+      border-bottom: 2px solid $blue;
+      color: $default-shade;
+    }
+  }
+}
+
+.avatar {
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px $white, 0 0 0 5px $grey-2, 0 6px 18px rgba(0, 0, 0, .08);
+  display: block;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  object-fit: cover;
+  width: 120px;
+}
+
+.post img.avatar {
+  margin: 0 auto 2rem;
+}
+
+// Home hero
+.hero {
+  padding: 4rem 0 3rem;
+  text-align: center;
+
+  &-title {
+    font-size: 3.2rem;
+    letter-spacing: -.5px;
+    margin: .5rem 0 1rem;
+  }
+
+  .post-line {
+    margin-bottom: 2rem;
+  }
+
+  &-tagline {
+    color: $default-shade;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin: 0 auto 1rem;
+    max-width: 32rem;
+  }
+
+  &-tagline-en {
+    color: $grey-1;
+    font-family: $serif-secondary;
+    font-style: italic;
+    margin: 0 auto 2.5rem;
+    max-width: 32rem;
+  }
+
+  &-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    justify-content: center;
+  }
+}
+
+.pill {
+  @include transition(all .2s ease-out);
+  border: 1px solid $blue;
+  border-radius: 999px;
+  color: $blue;
+  display: inline-block;
+  font-family: $sans-serif;
+  font-size: .95rem;
+  padding: .6rem 1.5rem;
+
+  &:hover,
+  &:focus {
+    background: $blue;
+    color: $white;
+  }
+}
+
+// Sections and lists
+.recent {
   border-top: 1px solid $grey-2;
+  padding: 3rem 0 1rem;
+}
+
+.section-title {
   color: $default-tint;
   font-size: .85rem;
-  margin-top: 2rem;
-  padding-top: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0 0 .5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.list-intro {
+  padding: 4rem 0 1rem;
+  text-align: center;
+
+  .post-title {
+    font-size: 3rem;
+  }
+
+  .post-line {
+    margin-bottom: 2rem;
+  }
+}
+
+.list-lead {
+  color: $grey-1;
+  margin: 0 auto;
+  max-width: 32rem;
+}
+
+.catalogue {
+  &-item {
+    padding: 2rem 0;
+  }
+
+  &-link {
+    color: $default-color;
+    display: block;
+
+    &:hover .catalogue-line,
+    &:focus .catalogue-line {
+      width: 5rem;
+    }
+  }
+
+  &-title {
+    font-size: 1.6rem;
+  }
+
+  &-excerpt {
+    margin: 1rem 0 0;
+  }
+
+  &-translation {
+    display: inline-block;
+    font-family: $sans-serif;
+    font-size: .85rem;
+    margin-top: .5rem;
+  }
+}
+
+.empty-state {
+  border: 1px dashed $grey-2;
+  border-radius: 12px;
+  color: $grey-1;
+  font-family: $serif-secondary;
+  font-style: italic;
+  margin: 2rem auto 3rem;
+  max-width: 32rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.home-about {
+  font-family: $sans-serif;
+  font-size: .85rem;
+  padding: 1rem 0 2rem;
+  text-align: center;
+
+  a {
+    color: $grey-1;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  .hero {
+    padding-top: 3rem;
+
+    &-title {
+      font-size: 2.6rem;
+    }
+  }
+
+  .post-title,
+  .list-intro .post-title {
+    font-size: 2.4rem;
+  }
+
+  .nav li {
+    padding-right: 1.2rem;
+  }
+
+  // Justified Hangul leaves wide gaps on narrow screens.
+  .post p {
+    text-align: left;
+  }
 }

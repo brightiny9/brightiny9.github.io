@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{%- comment -%} All visible text lives in index.md front matter. {%- endcomment -%}
+<div class="home">
+  <header class="hero">
+    <img class="avatar" src="{{ '/assets/avatar.webp' | relative_url }}" alt="{{ page.avatar_alt }}" width="120" height="120">
+    <h1 class="hero-title">{{ site.title }}</h1>
+    <div class="post-line"></div>
+    <p class="hero-tagline" lang="ko">{{ page.tagline_ko }}</p>
+    <p class="hero-tagline-en" lang="en">{{ page.tagline_en }}</p>
+    <div class="hero-buttons">
+      <a class="pill" href="{{ '/ko/' | relative_url }}" hreflang="ko">{{ page.button_ko }}</a>
+      <a class="pill" href="{{ '/en/' | relative_url }}" hreflang="en" lang="en">{{ page.button_en }}</a>
+    </div>
+  </header>
+
+  <section class="recent">
+    <h2 class="section-title">{{ page.recent_title }}</h2>
+    {%- assign posts = site.posts | where: "lang", "ko" %}
+    {% include catalogue.html posts=posts limit=3 empty=page.empty translations=true %}
+  </section>
+
+  <p class="home-about">
+    <a href="{{ '/ko/about/' | relative_url }}" hreflang="ko">{{ page.about_ko }}</a> ·
+    <a href="{{ '/en/about/' | relative_url }}" hreflang="en" lang="en">{{ page.about_en }}</a>
+  </p>
+</div>

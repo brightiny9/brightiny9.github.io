@@ -4,10 +4,10 @@
       <h2 class="nav-title">{{ site.title }}</h2>
     </a>
     <ul>
-      <li><a href="{{ '/ko/' | relative_url }}" hreflang="ko">한국어</a></li>
-      <li><a href="{{ '/en/' | relative_url }}" hreflang="en">English</a></li>
-      <li><a href="{{ '/ko/about/' | relative_url }}" hreflang="ko">소개</a></li>
-      <li><a href="{{ '/en/about/' | relative_url }}" hreflang="en">About</a></li>
+      <li{% if page.url == '/ko/' %} class="active"{% endif %}><a href="{{ '/ko/' | relative_url }}" hreflang="ko">한국어</a></li>
+      <li{% if page.url == '/en/' %} class="active"{% endif %}><a href="{{ '/en/' | relative_url }}" hreflang="en">English</a></li>
+      <li{% if page.url == '/ko/about/' %} class="active"{% endif %}><a href="{{ '/ko/about/' | relative_url }}" hreflang="ko">소개</a></li>
+      <li{% if page.url == '/en/about/' %} class="active"{% endif %}><a href="{{ '/en/about/' | relative_url }}" hreflang="en">About</a></li>
     </ul>
   </div>
 </nav>

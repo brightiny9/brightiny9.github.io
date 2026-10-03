@@ -1,0 +1,21 @@
+{%- comment -%} Usage: include catalogue.html posts=... empty="..." translations=true {%- endcomment -%}
+{%- if include.posts.size > 0 %}
+<div class="catalogue">
+{%- for post in include.posts limit: include.limit %}
+  <div class="catalogue-item">
+    <a href="{{ post.url | relative_url }}" class="catalogue-link">
+      <time datetime="{{ post.date | date_to_xmlschema }}" class="catalogue-time">{{ post.date | date: "%Y-%m-%d" }}</time>
+      <h2 class="catalogue-title">{{ post.title | escape }}</h2>
+      <div class="catalogue-line"></div>
+      <p class="catalogue-excerpt">{{ post.excerpt | default: post.content | strip_html | strip | truncate: 140 }}</p>
+    </a>
+    {%- if include.translations and post.ref %}
+      {%- assign t = site.posts | where: "ref", post.ref | where: "lang", "en" | first %}
+      {%- if t %}<a class="catalogue-translation" href="{{ t.url | relative_url }}" hreflang="en">English →</a>{% endif %}
+    {%- endif %}
+  </div>
+{%- endfor %}
+</div>
+{%- else %}
+<p class="empty-state">{{ include.empty }}</p>
+{%- endif %}
