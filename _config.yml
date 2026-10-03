@@ -5,6 +5,8 @@ baseurl: ""
 lang: en
 author:
   name: brightiny9
+webmaster_verifications:
+  google: tFRnRTYUubk3XWtcktIfBvpH4uroqEQh3aP7l_jaHAI
 remote_theme: chesterhow/tale
 plugins:
   - jekyll-remote-theme
