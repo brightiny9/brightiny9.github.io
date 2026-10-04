@@ -31,7 +31,7 @@ For a small team that ships through GitHub pull requests with AI coding tools, L
 
 ## How we compared
 
-We read the three vendors' pricing pages, help centers, developer docs and changelogs, plus the MCP docs for Claude Code and Cursor, on Oct 4, 2026. We also read the pages that rank for this search and the answers Google AI Mode and ChatGPT give, to see where they go wrong. We didn't run hands-on tests, so this post doesn't rank speed, ease of use or AI output quality. Every price links to the official page with the date we checked it. If something here is out of date, tell us and we'll fix it and note the change.
+We read the three vendors' pricing pages, help centers, developer docs and changelogs, plus the MCP docs for Claude Code and Cursor, on Oct 4, 2026. We also read the pages that rank for this search and the answers Google AI Mode and ChatGPT give, to see where they go wrong. We didn't run hands-on tests, so this post doesn't rank speed, ease of use or AI output quality. Every price links to the official page with the date we checked it. Prices change, so check the linked official pages before you decide.
 
 ## How much do Linear, Notion and ClickUp cost for a small team?
 
