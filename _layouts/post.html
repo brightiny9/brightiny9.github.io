@@ -26,3 +26,13 @@ layout: default
 <div class="pagination">
   <a href="#" class="top">Top</a>
 </div>
+
+<script>
+  // Open external links in the post body in a new tab; internal links stay in place.
+  document.querySelectorAll('.post a[href]').forEach(function (a) {
+    if (a.hostname && a.hostname !== location.hostname) {
+      a.target = '_blank';
+      a.rel = 'noopener';
+    }
+  });
+</script>
