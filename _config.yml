@@ -3,6 +3,8 @@ description: "Building services vibe-coding founders can't do without, plus side
 url: https://brightiny9.github.io
 baseurl: ""
 lang: en
+# Posts are dated in KST; merged in the Korean morning, that date is still in the future in UTC.
+future: true
 author:
   name: brightiny9
 webmaster_verifications:
