@@ -32,6 +32,8 @@ $code-color: var(--code);
   --link: #4a9ae1;
   --shadow: rgba(0, 0, 0, .2);
   --code: #bf616a;
+  --accent: #e8806a;
+  --bar: #4a5568;
   color-scheme: light dark;
 }
 
@@ -48,6 +50,8 @@ $code-color: var(--code);
     --link: #6cb4f2;
     --shadow: rgba(0, 0, 0, .6);
     --code: #e6a0a7;
+    --accent: #f0937f;
+    --bar: #8a96a8;
   }
 
   // Rouge's light palette has near-black tokens; keep code readable instead.
@@ -300,5 +304,181 @@ footer,
   .post td {
     min-width: 5rem; // a scrolled column beats one word per line
     padding: .5rem .65rem;
+  }
+}
+
+// ---- Inline visuals in posts (BRI-179) ----
+// Plain HTML text drawn with CSS, so numbers stay readable by people,
+// screen readers, and crawlers. See _includes/bars.html and stat.html.
+.post .v-figure {
+  font-family: $sans-serif;
+  margin: 2rem 0;
+}
+
+.post .v-figure figcaption {
+  color: var(--soft);
+  font-size: .8rem;
+  line-height: 1.5;
+  margin-top: .6rem;
+}
+
+.post .v-note {
+  font-style: italic;
+}
+
+.post .v-bars table {
+  display: table;
+  margin: 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.post .v-bars caption {
+  color: $default-shade;
+  font-weight: 700;
+  margin-bottom: .6rem;
+  text-align: left;
+}
+
+.post .v-bars th,
+.post .v-bars td {
+  background: none;
+  border: 0;
+  font-size: .9rem;
+  min-width: 0;
+  padding: .3rem 0;
+  vertical-align: middle;
+}
+
+.post .v-bars th {
+  color: $default-color;
+  font-weight: 400;
+  padding-right: .8rem;
+  width: 40%;
+}
+
+.post .v-bars tbody tr:nth-child(even) {
+  background: none;
+}
+
+// Bar widths are % of the track minus room on the right, so the value
+// always sits right after its bar, even for the longest one.
+.post .v-track {
+  align-items: center;
+  display: flex;
+  gap: .5rem;
+  padding-right: 6rem;
+}
+
+.post .v-bar {
+  background: var(--bar);
+  border-radius: 2px;
+  display: block;
+  flex: none;
+  height: .9rem;
+  min-width: 2px;
+}
+
+.post .v-val {
+  color: $default-shade;
+  flex: none;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.post .v-hl .v-bar {
+  background: var(--accent);
+}
+
+.post .v-hl th {
+  color: $default-shade;
+  font-weight: 700;
+}
+
+.post .v-stat {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 1.2rem 0;
+}
+
+.post .v-stat p {
+  margin: 0;
+  text-align: left;
+}
+
+.post .v-stat-value {
+  color: $default-shade;
+  font-size: 3rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.post .v-stat-value::after {
+  background: var(--accent);
+  content: "";
+  display: block;
+  height: 3px;
+  margin-top: .5rem;
+  width: 2.5rem;
+}
+
+.post .v-stat-label {
+  color: $default-color;
+  font-size: 1rem;
+  margin-top: .5rem !important;
+}
+
+.post .v-fallback {
+  font-family: $sans-serif;
+  font-size: .9rem;
+}
+
+// Verdict box: a blockquote marked with {: .v-verdict} at the top of a post.
+.post blockquote.v-verdict {
+  background: unquote("color-mix(in srgb, var(--accent) 10%, transparent)");
+  border-left: 4px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  color: $default-shade;
+  font-style: normal;
+  margin: 1.5rem 0 2rem;
+  padding: 1rem 1.2rem;
+
+  p {
+    margin: 0;
+    text-align: left;
+  }
+
+  p + p {
+    margin-top: .6rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .post .v-bars table,
+  .post .v-bars tbody,
+  .post .v-bars tr,
+  .post .v-bars th,
+  .post .v-bars td,
+  .post .v-bars caption {
+    display: block;
+    width: auto;
+  }
+
+  .post .v-bars tr {
+    margin-bottom: .55rem;
+  }
+
+  .post .v-bars th {
+    padding: 0 0 .15rem;
+  }
+
+  .post .v-bars td {
+    padding: 0;
+  }
+
+  .post .v-stat-value {
+    font-size: 2.4rem;
   }
 }

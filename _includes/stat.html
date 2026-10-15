@@ -1,0 +1,9 @@
+{%- comment -%}
+One big number that is the post's answer.
+{% include stat.html value="2x" label="..." source="..." url="https://..." date="2026-10-14" note="..." %}
+Renders nothing without a value; never raises a Liquid error.
+{%- endcomment -%}
+{%- assign st_value = include.value | strip -%}
+{%- if st_value != "" -%}
+<figure class="v-figure v-stat"><p class="v-stat-value">{{ st_value | escape }}</p>{% if include.label and include.label != "" %}<p class="v-stat-label">{{ include.label | escape }}</p>{% endif %}{% include v-caption.html source=include.source url=include.url date=include.date note=include.note %}</figure>
+{%- endif -%}
