@@ -6,6 +6,65 @@ $serif-primary: 'Libre Baskerville', 'Times New Roman', Times, 'AppleMyungjo', '
 $serif-secondary: Palatino, 'Palatino LT STD', 'Palatino Linotype', 'Book Antiqua', 'Georgia', 'AppleMyungjo', 'Noto Serif KR', 'Noto Serif CJK KR', 'Batang', serif;
 $sans-serif: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Noto Sans CJK KR', 'Malgun Gothic', sans-serif;
 
+// Colors are CSS custom properties so the page can follow the system dark
+// mode (BRI-178). Tale's color variables are !default and never passed to
+// Sass color functions, so pointing them at var() is safe.
+$default-color: var(--text);
+$default-shade: var(--heading);
+$default-tint: var(--muted);
+$grey-1: var(--soft);
+$grey-2: var(--line);
+$grey-3: var(--code-bg);
+$white: var(--surface);
+$blue: var(--link);
+$shadow-color: var(--shadow);
+$code-color: var(--code);
+
+:root {
+  --bg: #fbfaf7;
+  --surface: #fff;
+  --text: #555;
+  --heading: #353535;
+  --muted: #aaa;
+  --soft: #979797;
+  --line: #e5e5e5;
+  --code-bg: #f9f9f9;
+  --link: #4a9ae1;
+  --shadow: rgba(0, 0, 0, .2);
+  --code: #bf616a;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17181a;
+    --surface: #202124;
+    --text: #c8c8c8;
+    --heading: #ededed;
+    --muted: #8c8c8c;
+    --soft: #9a9a9a;
+    --line: #34363a;
+    --code-bg: #24262a;
+    --link: #6cb4f2;
+    --shadow: rgba(0, 0, 0, .6);
+    --code: #e6a0a7;
+  }
+
+  // Rouge's light palette has near-black tokens; keep code readable instead.
+  .highlight [class] {
+    background: none;
+    border: 0;
+    color: inherit;
+  }
+
+  .highlight .c,
+  .highlight .c1,
+  .highlight .cm,
+  .highlight .cs {
+    color: var(--muted);
+  }
+}
+
 @import 'tale';
 
 :lang(ko) {
@@ -18,7 +77,7 @@ $sans-serif: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, 'Apple SD Gothic Ne
 }
 
 // ---- Layout polish (home, lists, about) ----
-$warm-bg: #fbfaf7;
+$warm-bg: var(--bg);
 
 body {
   background: $warm-bg;
