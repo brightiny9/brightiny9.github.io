@@ -198,3 +198,48 @@ footer,
     text-align: left;
   }
 }
+
+// ---- Tables in posts (BRI-177) ----
+// Tale has no table styles. Lines and fills derive from the text color,
+// so they keep working when the colors change (dark mode).
+.post table {
+  border-collapse: collapse;
+  display: block; // wide tables scroll inside their own box, not the page
+  font-variant-numeric: tabular-nums;
+  margin: 1.5rem 0;
+  max-width: 100%;
+  overflow-x: auto;
+  width: max-content;
+}
+
+.post th,
+.post td {
+  border-bottom: 1px solid unquote("color-mix(in srgb, currentColor 15%, transparent)");
+  line-height: 1.5;
+  padding: .55rem .9rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.post th {
+  background: unquote("color-mix(in srgb, currentColor 7%, transparent)");
+  border-bottom-width: 2px;
+  color: $default-shade;
+  font-weight: 700;
+}
+
+.post tbody tr:nth-child(even) {
+  background: unquote("color-mix(in srgb, currentColor 3%, transparent)");
+}
+
+@media (max-width: 599px) {
+  .post table {
+    font-size: .9rem;
+  }
+
+  .post th,
+  .post td {
+    min-width: 5rem; // a scrolled column beats one word per line
+    padding: .5rem .65rem;
+  }
+}
