@@ -20,4 +20,8 @@
   {% if site.google_analytics and jekyll.environment == 'production' %}
   {% include analytics.html %}
   {% endif %}
+  <!-- Cloudflare Web Analytics -->
+  {% if jekyll.environment == 'production' %}
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bdcfddc786e84840a0c681925b8650b9"}'></script>
+  {% endif %}
 </head>
