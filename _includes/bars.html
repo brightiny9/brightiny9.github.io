@@ -1,0 +1,47 @@
+{%- comment -%}
+Horizontal bars, 2-6 items, value printed beside each bar.
+{% include bars.html title="..." items="Label|0.60;Label 2|1.20" prefix="$" unit="" highlight="2" source="..." url="https://..." date="2026-10-14" note="..." %}
+Values are plain non-negative numbers (digits, one dot, optional commas). Anything else
+(missing items, a malformed row, a non-number, 1 or 7+ items, all zero)
+falls back to plain text; never a Liquid error.
+{%- endcomment -%}
+{%- assign b_raw = include.items | strip -%}
+{%- if b_raw != "" -%}
+{%- assign b_rows = b_raw | split: ";" -%}
+{%- assign b_ok = true -%}
+{%- assign b_max = 0.0 -%}
+{%- assign b_n = 0 -%}
+{%- for b_row in b_rows -%}
+{%- assign b_row_s = b_row | strip -%}
+{%- if b_row_s == "" -%}{%- continue -%}{%- endif -%}
+{%- assign b_n = b_n | plus: 1 -%}
+{%- assign b_parts = b_row_s | split: "|" -%}
+{%- if b_parts.size != 2 -%}{%- assign b_ok = false -%}{%- break -%}{%- endif -%}
+{%- assign b_label = b_parts[0] | strip -%}
+{%- assign b_val = b_parts[1] | strip | remove: "," -%}
+{%- assign b_rest = b_val | remove: "0" | remove: "1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" | remove: "8" | remove: "9" -%}
+{%- if b_label == "" or b_val == "" or b_rest.size > 1 -%}{%- assign b_ok = false -%}{%- break -%}{%- endif -%}
+{%- if b_rest.size == 1 and b_rest != "." -%}{%- assign b_ok = false -%}{%- break -%}{%- endif -%}
+{%- if b_val == "." -%}{%- assign b_ok = false -%}{%- break -%}{%- endif -%}
+{%- assign b_num = b_val | times: 1.0 -%}
+{%- if b_num > b_max -%}{%- assign b_max = b_num -%}{%- endif -%}
+{%- endfor -%}
+{%- if b_n < 2 or b_n > 6 or b_max <= 0 -%}{%- assign b_ok = false -%}{%- endif -%}
+{%- assign b_hl = include.highlight | default: 0 | plus: 0 -%}
+{%- if b_ok -%}
+<figure class="v-figure v-bars"><table>{% if include.title and include.title != "" %}<caption>{{ include.title | escape }}</caption>{% endif %}<tbody>
+{%- assign b_i = 0 -%}
+{%- for b_row in b_rows -%}
+{%- assign b_row_s = b_row | strip -%}
+{%- if b_row_s == "" -%}{%- continue -%}{%- endif -%}
+{%- assign b_i = b_i | plus: 1 -%}
+{%- assign b_parts = b_row_s | split: "|" -%}
+{%- assign b_val = b_parts[1] | strip -%}
+{%- assign b_w = b_val | remove: "," | times: 100.0 | divided_by: b_max | round: 1 -%}
+<tr{% if b_i == b_hl %} class="v-hl"{% endif %}><th scope="row">{{ b_parts[0] | strip | escape }}</th><td><span class="v-track"><span class="v-bar" aria-hidden="true" style="width:{{ b_w }}%"></span><span class="v-val">{{ include.prefix | escape }}{{ b_val }}{{ include.unit | escape }}</span></span></td></tr>
+{%- endfor -%}
+</tbody></table>{% include v-caption.html source=include.source url=include.url date=include.date note=include.note %}</figure>
+{%- else -%}
+<p class="v-fallback">{% if include.title and include.title != "" %}{{ include.title | escape }}: {% endif %}{{ b_raw | replace: "|", ": " | replace: ";", " · " | escape }}</p>
+{%- endif -%}
+{%- endif -%}

@@ -1,0 +1,8 @@
+{%- comment -%}
+Shared caption for stat.html and bars.html: source (linked when url starts
+with http), checked date, optional note. A missing source or date is shown,
+not hidden, so a reviewer sees it.
+{%- endcomment -%}
+{%- assign vc_url = include.url | strip -%}
+{%- assign vc_scheme = vc_url | slice: 0, 4 -%}
+<figcaption>Source: {% if include.source and include.source != "" %}{% if vc_scheme == "http" %}<a href="{{ vc_url | escape }}">{{ include.source | escape }}</a>{% else %}{{ include.source | escape }}{% endif %}{% else %}not stated{% endif %}{% if include.date and include.date != "" %}, checked {{ include.date | escape }}{% else %}, date not stated{% endif %}.{% if include.note and include.note != "" %} <span class="v-note">{{ include.note | escape }}</span>{% endif %}</figcaption>
