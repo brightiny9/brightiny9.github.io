@@ -482,3 +482,26 @@ footer,
     font-size: 2.4rem;
   }
 }
+
+// ---- Narrow screens: nothing wider than the column (BRI-209) ----
+// Bare URLs in source lists pushed a 390px page to ~500px. Long tokens
+// break only when they would overflow, so desktop text is unchanged.
+.post p,
+.post li,
+.post blockquote,
+.post dd {
+  overflow-wrap: anywhere;
+}
+
+// Code and media scroll or shrink inside their own box, not the page.
+.post pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+// Tale already caps img at 100%.
+.post svg,
+.post video,
+.post iframe {
+  max-width: 100%;
+}
