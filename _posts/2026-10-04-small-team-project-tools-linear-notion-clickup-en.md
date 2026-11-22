@@ -17,6 +17,8 @@ Updated 2026-10-31: ClickUp's plan names and prices changed since the first vers
 
 Updated 2026-11-22: I added a link to a separate step-by-step post on connecting GitHub, Notion and Linear to one coding agent (see the agent section below), and fixed the read-only and sign-in details for GitHub and Notion in the table. I re-opened the Linear, Notion and ClickUp pricing pages on 2026-11-22 and the prices in this post still match (one ClickUp Free plan detail I could not re-confirm; see the pricing section).
 
+Updated 2026-11-23: I added a short free-check offer at the end of the post. No price, limit or other fact in the post changed.
+
 ## The short version
 
 - Linear: an issue tracker built around software teams. Its pricing page lists teams, issues and projects, not docs.
@@ -154,6 +156,10 @@ No single connector is documented. A workable pattern is specs in Notion, ticket
 
 **Is Notion or Linear better for writing specs that Cursor and Claude Code can read through MCP?**
 Notion for the long spec, Linear for the short ticket. Notion MCP reads and edits pages and databases; Linear MCP works on issues, projects and comments.
+
+## A free check for your own product
+
+This is our own free service. If you build a product, you may wonder how ChatGPT, Claude and Perplexity describe it. Want a free check? Send your product URL in one line to brightiny9@gmail.com. Within 3 days I'll reply with what those assistants say about it, plus three fixes. No signup, no card. I count requests to see if this is useful, and I only use your URL for the reply.
 
 ## Sources
 
