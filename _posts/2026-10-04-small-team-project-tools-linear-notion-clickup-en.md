@@ -19,6 +19,8 @@ Updated 2026-11-22: I added a link to a separate step-by-step post on connecting
 
 Updated 2026-11-23: I added a short free-check offer at the end of the post. No price, limit or other fact in the post changed.
 
+Updated 2026-11-28: I added a link to a separate checklist for when a connected server returns empty results (see the agent section and the FAQ), and I corrected the Notion AI credit line in the pricing section (see Corrections). No plan price changed.
+
 ## The short version
 
 - Linear: an issue tracker built around software teams. Its pricing page lists teams, issues and projects, not docs.
@@ -29,7 +31,7 @@ Updated 2026-11-23: I added a short free-check offer at the end of the post. No 
 
 Short answer: connect all three to one MCP-capable client. GitHub, Linear and Notion each publish an official MCP server (MCP is the open standard that lets an AI app call tools in another app), and each one works with Claude and Cursor-style clients, so one agent can hold all three connections side by side. There is no single combined connector in the docs I read; you add three separate servers.
 
-If you want the commands and a read-only version of each, I wrote them up in a separate post: [How do I connect GitHub, Notion, and Linear to one AI coding agent with MCP?](https://brightiny9.github.io/en/connect-github-notion-linear-coding-agent-mcp/) This section stays as the short comparison.
+If you want the commands and a read-only version of each, I wrote them up in a separate post: [How do I connect GitHub, Notion, and Linear to one AI coding agent with MCP?](https://brightiny9.github.io/en/connect-github-notion-linear-coding-agent-mcp/) This section stays as the short comparison. If a server shows as connected but your agent gets empty results, start with [My coding agent says Linear is connected but returns empty results. What should I check?](https://brightiny9.github.io/en/linear-connected-but-empty-results/)
 
 What each doc says, as of 2026-10-29 (the GitHub and Notion rows were re-read on 2026-11-22):
 
@@ -86,7 +88,7 @@ That reverses part of the old story. At the entry level ClickUp is $1 per seat c
 Watch the AI line items:
 
 - ClickUp now puts AI credits in its plans instead of a separate add-on price. On the page I read, Core shows 1,000 credits per user per month and Business 1,500, pooled, with extra credits at $10 per 10,000. For the Free plan, check the page yourself: I saw a Brain AI trial on 2026-10-31 but could not re-confirm it on 2026-11-22. The first version of this post quoted separate AI add-on prices; I could not find those on the page any more, so I removed them.
-- Notion lists Custom Agents as "free to try, then $10 per 1,000 monthly Notion credits", and the Notion Agent under Business.
+- Notion's pricing page, read 2026-11-28, shows the Notion Agent starting at Business with 1,500 Standard credits a month, and Custom Agents on Business and Enterprise with 500 Select credits a month on Business. Earlier versions of this post quoted a "free to try, then $10 per 1,000 credits" line; I could not find it on the page on 2026-11-28, so I removed it. Notion's separate Custom Agents page mentions a free trial; I did not confirm its terms.
 - Linear lists its agent platform and Linear Agent on the Free plan. AI features may need separate credits, per the page on 2026-10-29.
 
 ## Linear
@@ -157,6 +159,9 @@ No single connector is documented. A workable pattern is specs in Notion, ticket
 **Is Notion or Linear better for writing specs that Cursor and Claude Code can read through MCP?**
 Notion for the long spec, Linear for the short ticket. Notion MCP reads and edits pages and databases; Linear MCP works on issues, projects and comments.
 
+**My agent says Linear is connected, but the results are empty. Where do I start?**
+A "connected" label only means the client reached the server, not that your account can see the data you asked for. The [empty-results checklist](https://brightiny9.github.io/en/linear-connected-but-empty-results/) goes through the checks in order.
+
 ## A free check for your own product
 
 This is our own free service. If you build a product, you may wonder how ChatGPT, Claude and Perplexity describe it. Want a free check? Send your product URL in one line to brightiny9@gmail.com. Within 3 days I'll reply with what those assistants say about it, plus three fixes. No signup, no card. I count requests to see if this is useful, and I only use your URL for the reply.
@@ -175,5 +180,6 @@ Pricing and plan pages read on 2026-10-28, 2026-10-29 and 2026-10-31 (ClickUp pr
 - Notion Custom Agents release notes: https://www.notion.com/releases/2026-02-24
 - ClickUp 4.0 and AI agents coverage: https://www.techbuzz.ai/articles/clickup-launches-ai-agents-to-challenge-slack-and-notion
 - Our step-by-step post on connecting the three servers: https://brightiny9.github.io/en/connect-github-notion-linear-coding-agent-mcp/
+- Our checklist for empty results: https://brightiny9.github.io/en/linear-connected-but-empty-results/
 
-Corrections: 2026-11-22 — GitHub's remote MCP server does have a read-only mode (`/readonly` or the `X-MCP-Readonly` header); this post said only the local server did. Notion MCP also offers MCP tokens on Business and Enterprise, which the table left out. I removed my note that restricting clients needs Notion's Enterprise plan, because I could not re-confirm it. I stopped quoting the ClickUp Free "500 credits" figure because I could not re-confirm it on 2026-11-22, and added the note that ClickUp's MCP call table is for workspaces without its Everything AI add-on. Added a link to the step-by-step connection post. Prices are unchanged. 2026-10-31 — updated ClickUp plan names and prices (Unlimited $7 and Business $12 became Core $9 and Business $17), replaced the ClickUp AI add-on prices from the first version (no longer on its page) with the credit amounts on its plans, described the Free plan's 500 credits as a trial the page does not call monthly, marked the GitHub read-only flag as local-server only, noted that I could not compare Linear and Notion with the first version, added the agent-access sections. If a price or limit here is wrong, I'll fix it and note the change here.
+Corrections: 2026-11-28 — I had written that Notion lists Custom Agents as "free to try, then $10 per 1,000 monthly Notion credits". I could not find that on Notion's pricing page on 2026-11-28; the page shows Notion Agent from Business (1,500 Standard credits a month) and Custom Agents on Business and Enterprise (500 Select credits a month on Business). I replaced the line. I also added links to the empty-results checklist (agent section and FAQ). No plan price changed. 2026-11-22 — GitHub's remote MCP server does have a read-only mode (`/readonly` or the `X-MCP-Readonly` header); this post said only the local server did. Notion MCP also offers MCP tokens on Business and Enterprise, which the table left out. I removed my note that restricting clients needs Notion's Enterprise plan, because I could not re-confirm it. I stopped quoting the ClickUp Free "500 credits" figure because I could not re-confirm it on 2026-11-22, and added the note that ClickUp's MCP call table is for workspaces without its Everything AI add-on. Added a link to the step-by-step connection post. Prices are unchanged. 2026-10-31 — updated ClickUp plan names and prices (Unlimited $7 and Business $12 became Core $9 and Business $17), replaced the ClickUp AI add-on prices from the first version (no longer on its page) with the credit amounts on its plans, described the Free plan's 500 credits as a trial the page does not call monthly, marked the GitHub read-only flag as local-server only, noted that I could not compare Linear and Notion with the first version, added the agent-access sections. If a price or limit here is wrong, I'll fix it and note the change here.
